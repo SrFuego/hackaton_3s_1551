@@ -8,9 +8,10 @@
 
 
 # Local imports
+from .viewsets import InterestAreaViewSet
 
 
 # Create your routers here.
-# router_list = (
-#     ("model", ModelViewSet),
-# )
+profiles = (
+    (r"interest_area", InterestAreaViewSet),
+)

@@ -25,8 +25,8 @@ from apps.common.routers import router
 from rest_framework.documentation import include_docs_urls
 
 
-API_TITLE = "hackaton_innova"
-API_DESCRIPTION = '...'
+API_TITLE = "Sherlok"
+API_DESCRIPTION = "..."
 
 
 urlpatterns = [
@@ -37,7 +37,7 @@ urlpatterns = [
     url(
         r"^docs/",
         include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
-    url(r'^api/', include(router.urls, namespace='api')),
+    url(r"^api/", include(router.urls, namespace="api")),
 ]
 
 if settings.DEBUG:

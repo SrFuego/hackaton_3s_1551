@@ -42,6 +42,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     "apps.common",
+    "apps.profiles",
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -120,7 +121,7 @@ STATIC_URL = "/static/"
 
 # Django Rest Framework Settings
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAdminUser",)
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
 }
 
 # Django Rest Framework CORS configuration
