@@ -35,7 +35,7 @@ class ObtainAuthToken(APIView):
         try:
             investigator = user.investigator
             return Response({
-                "full_name": investigator.user.get_full_name(),
+                "investigator_id": investigator.id,
                 "token": token.key
             }, status=status.HTTP_200_OK)
         except Exception as e:
