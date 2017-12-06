@@ -45,7 +45,7 @@ class Investigator(TimeStampedModel):
         (POSTGRADUATE, "Postgrado"),)
 
     interest_areas = models.ManyToManyField("InterestArea", blank=True)
-    orcid_code = models.CharField(max_length=16, blank=True)
+    orcid_code = models.CharField(max_length=16, blank=True, null=True)
     role = models.CharField(max_length=15, choices=ROLE_CHOICES)
     unmsm_code = models.CharField(max_length=8, unique=True)
     user = models.OneToOneField(
