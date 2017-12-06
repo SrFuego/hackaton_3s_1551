@@ -27,6 +27,7 @@ class InterestArea(TimeStampedModel):
     class Meta:
         verbose_name = "Area de Interes"
         verbose_name_plural = "Areas de Interes"
+        ordering = ["name"]
 
     def __str__(self):
         return self.name

@@ -19,6 +19,7 @@ class PublicationKind(TimeStampedModel):
     class Meta:
         verbose_name = "Tipo de Publicacion"
         verbose_name_plural = "Tipos de Publicaciones"
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
@@ -36,6 +37,7 @@ class Publication(TimeStampedModel):
     class Meta:
         verbose_name = "Publicacion"
         verbose_name_plural = "Publicaciones"
+        ordering = ["title"]
 
     def __str__(self):
         return self.title
