@@ -16,7 +16,7 @@ from .models import InterestArea, Investigator
 class InterestAreaSerializer(ModelSerializer):
     class Meta:
         model = InterestArea
-        fields = "__all__"
+        fields = ("id", "name",)
 
 
 class InvestigatorSerializer(ModelSerializer):

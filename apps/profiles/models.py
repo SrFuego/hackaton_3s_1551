@@ -42,7 +42,8 @@ class Investigator(TimeStampedModel):
     orcid_code = models.CharField(max_length=16, blank=True)
     role = models.CharField(max_length=15, choices=ROLE_CHOICES)
     unmsm_code = models.CharField(max_length=8, unique=True)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, related_name="investigator")
 
     class Meta:
         verbose_name = "Investigador"

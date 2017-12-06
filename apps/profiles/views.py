@@ -33,9 +33,9 @@ class ObtainAuthToken(APIView):
         update_last_login(None, user)
         token, created = Token.objects.get_or_create(user=user)
         try:
-            profile = user.profile
+            investigator = user.investigator
             return Response({
-                "investigator_id": profile.id,
+                "investigator_id": investigator.id,
                 "token": token.key
             }, status=status.HTTP_200_OK)
         except Exception as e:
