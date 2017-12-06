@@ -25,7 +25,7 @@ from apps.common.routers import router
 from rest_framework.documentation import include_docs_urls
 
 
-API_TITLE = "Sherlok"
+API_TITLE = "Sherlock"
 API_DESCRIPTION = "..."
 
 
