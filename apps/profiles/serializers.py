@@ -31,19 +31,30 @@ class UserSerializer(serializers.ModelSerializer):
 
 class InvestigatorSerializer(serializers.ModelSerializer):
     orcid_code = serializers.CharField(allow_null=True)
-    user = UserSerializer()
+    user = UserSerializer(read_only=True)
+    username = serializers.CharField(write_only=True)
+    password = serializers.CharField(write_only=True)
+    first_name = serializers.CharField(write_only=True)
+    last_name = serializers.CharField(write_only=True)
+    email = serializers.CharField(write_only=True, allow_blank=True)
 
     class Meta:
         model = Investigator
         fields = (
-            "id", "orcid_code", "role", "unmsm_code", "user",
-            "interest_areas",)
+            "id", "orcid_code", "role", "unmsm_code", "user", "interest_areas",
+            "last_name", "username", "password", "first_name", "email")
 
     def create(self, validated_data):
-        user_tmp = validated_data.pop("user")
         user = get_user_model().objects.create_user(
-            user_tmp["username"], user_tmp["email"], user_tmp["password"],
-            first_name=user_tmp["first_name"], last_name=user_tmp["last_name"])
+            validated_data["username"], validated_data["email"],
+            validated_data["password"],
+            first_name=validated_data["first_name"],
+            last_name=validated_data["last_name"])
+        validated_data.pop("username")
+        validated_data.pop("email")
+        validated_data.pop("password")
+        validated_data.pop("first_name")
+        validated_data.pop("last_name")
         info = model_meta.get_field_info(Investigator)
         many_to_many = {}
         for field_name, relation_info in info.relations.items():
