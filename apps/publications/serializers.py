@@ -22,4 +22,4 @@ class PublicationSerializer(ModelSerializer):
 class PublicationKindSerializer(ModelSerializer):
     class Meta:
         model = PublicationKind
-        fields = "__all__"
+        fields = ("id", "name",)

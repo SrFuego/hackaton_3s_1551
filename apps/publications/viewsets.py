@@ -22,3 +22,4 @@ class PublicationViewSet(ModelViewSet):
 class PublicationKindViewSet(ModelViewSet):
     serializer_class = PublicationKindSerializer
     queryset = PublicationKind.objects.all()
+    http_method_names = ["get"]
