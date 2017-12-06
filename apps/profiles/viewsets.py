@@ -17,6 +17,7 @@ from .serializers import InterestAreaSerializer, InvestigatorSerializer
 class InterestAreaViewSet(ModelViewSet):
     serializer_class = InterestAreaSerializer
     queryset = InterestArea.objects.all()
+    http_method_names = ["get"]
 
 
 class InvestigatorViewSet(ModelViewSet):

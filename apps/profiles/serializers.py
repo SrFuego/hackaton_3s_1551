@@ -22,4 +22,7 @@ class InterestAreaSerializer(ModelSerializer):
 class InvestigatorSerializer(ModelSerializer):
     class Meta:
         model = Investigator
-        fields = "__all__"
+        fields = (
+            "id", "graduated", "orcid_code", "role", "unmsm_code", "user",
+            "interest_areas",)
+        depth = 1
