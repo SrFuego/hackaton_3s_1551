@@ -35,9 +35,10 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    "corsheaders",
     "pipeline",
     "rest_framework",
-    "corsheaders",
+    "rest_framework.authtoken",
 )
 
 LOCAL_APPS = (

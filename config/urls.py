@@ -25,6 +25,9 @@ from apps.common.routers import router
 from rest_framework.documentation import include_docs_urls
 
 
+from apps.profiles.views import ObtainAuthToken
+
+
 API_TITLE = "Sherlock"
 API_DESCRIPTION = "..."
 
@@ -37,7 +40,10 @@ urlpatterns = [
     url(
         r"^docs/",
         include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
-    url(r"^api/", include(router.urls, namespace="api")),
+    url(r"^api/v1/", include(router.urls, namespace="api")),
+    url(
+        r"^api/v1/api-token-auth/", ObtainAuthToken.as_view(),
+        name="custom-token-view"),
 ]
 
 if settings.DEBUG:
