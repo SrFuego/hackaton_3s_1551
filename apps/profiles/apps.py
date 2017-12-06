@@ -13,5 +13,5 @@ from django.apps import AppConfig
 
 # Configure your app here.
 class ProfilesConfig(AppConfig):
-    name = "profiles"
+    name = "apps.profiles"
     verbose_name = "Perfiles"
