@@ -15,7 +15,7 @@ from model_utils.models import TimeStampedModel
 
 # Create your models here.
 class InterestArea(TimeStampedModel):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
 
     class Meta:
         verbose_name = "Area de Interes"
