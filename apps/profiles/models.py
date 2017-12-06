@@ -8,6 +8,9 @@ from django.db import models
 
 # Third party apps imports
 from model_utils.models import TimeStampedModel
+from stdimage.models import StdImageField
+from stdimage.utils import UploadToAutoSlugClassNameDir
+from stdimage.validators import MaxSizeValidator, MinSizeValidator
 
 
 # Local imports
@@ -16,6 +19,10 @@ from model_utils.models import TimeStampedModel
 # Create your models here.
 class InterestArea(TimeStampedModel):
     name = models.CharField(max_length=50, unique=True)
+    image = StdImageField(
+        upload_to=UploadToAutoSlugClassNameDir(populate_from="name"),
+        blank=True, null=True, variations={"thumbnail": (200, 150)},
+        validators=[MinSizeValidator(400, 400), MaxSizeValidator(1000, 1000)])
 
     class Meta:
         verbose_name = "Area de Interes"
@@ -37,7 +44,6 @@ class Investigator(TimeStampedModel):
         (PROFESSOR, "Docente"),
         (POSTGRADUATE, "Postgrado"),)
 
-    graduated = models.BooleanField(default=False)
     interest_areas = models.ManyToManyField("InterestArea", blank=True)
     orcid_code = models.CharField(max_length=16, blank=True)
     role = models.CharField(max_length=15, choices=ROLE_CHOICES)
