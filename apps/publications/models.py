@@ -30,6 +30,8 @@ class Publication(TimeStampedModel):
     description = models.TextField()
     kind = models.ForeignKey("PublicationKind", related_name="publications")
     title = models.CharField(max_length=50, unique=True)
+    interest_areas = models.ManyToManyField(
+        "profiles.InterestArea", blank=True)
 
     class Meta:
         verbose_name = "Publicacion"
