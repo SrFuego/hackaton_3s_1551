@@ -121,6 +121,11 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+MEDIA_URL = os.environ.get('MEDIA', '/media/')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Django Rest Framework Settings
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),

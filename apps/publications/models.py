@@ -29,7 +29,7 @@ class Publication(TimeStampedModel):
         "profiles.Investigator", related_name="publications")
     description = models.TextField()
     kind = models.ForeignKey("PublicationKind", related_name="publications")
-    title = models.CharField(max_length=50, unique=True)
+    title = models.TextField()
     interest_areas = models.ManyToManyField(
         "profiles.InterestArea", blank=True)
 
