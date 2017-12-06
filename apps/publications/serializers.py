@@ -17,6 +17,7 @@ class PublicationSerializer(ModelSerializer):
     class Meta:
         model = Publication
         fields = "__all__"
+        depth = 2
 
 
 class PublicationKindSerializer(ModelSerializer):
